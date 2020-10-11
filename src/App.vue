@@ -25,4 +25,8 @@
     }
   }
 }
+
+#app .v-application--wrap {
+  min-height: auto;
+}
 </style>

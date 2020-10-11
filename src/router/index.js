@@ -22,11 +22,11 @@ const routes = [
     },
     children: [
       {
-        path: 'projects',
+        path: "projects",
         component: Projects
       },
       {
-        path: 'notes',
+        path: "notes",
         component: Notes
       }
     ]

@@ -1,4 +1,9 @@
-class CredentialService {
+import { BaseHttp } from "./BaseHttp.service";
+
+class CredentialService extends BaseHttp {
+  constructor() {
+    super();
+  }
 
   #credentials = JSON.parse(sessionStorage.getItem("AUTH"));
 
@@ -19,6 +24,9 @@ class CredentialService {
     }
   }
 
+  logIn(data) {
+    return this.http.post(`${this.apiPath}/login`, data);
+  }
 }
 
 export default new CredentialService();

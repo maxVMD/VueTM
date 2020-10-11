@@ -10,5 +10,5 @@ export class Note {
     this.name = name;
     this.description = description;
     this.isPriority = isPriority;
-  };
+  }
 }

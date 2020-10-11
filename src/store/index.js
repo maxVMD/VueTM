@@ -16,28 +16,35 @@ export default new Vuex.Store({
     decrement: state => state.count--,
     addTo: (state, payload) => state.itemArr.push(payload),
     getNotes: state => {
-      noteService.getNotes(credentialsService.getCredential().login).then(resp => {
-        state.notes = resp;
-      });
-
+      noteService
+        .getNotes(credentialsService.getCredential().login)
+        .then(resp => {
+          state.notes = resp;
+        });
     },
     addNote(state, payload) {
-      return noteService.addNote(credentialsService.getCredential().login, payload).then(resp => {
-        this.commit("getNotes");
-        return resp;
-      });
+      return noteService
+        .addNote(credentialsService.getCredential().login, payload)
+        .then(resp => {
+          this.commit("getNotes");
+          return resp;
+        });
     },
     editNote(state, payload) {
-      return noteService.updateNote(credentialsService.getCredential().login, payload).then(resp => {
-        this.commit("getNotes");
-        return resp;
-      });
+      return noteService
+        .updateNote(credentialsService.getCredential().login, payload)
+        .then(resp => {
+          this.commit("getNotes");
+          return resp;
+        });
     },
     deleteNote(state, id) {
-      return noteService.deleteNote(credentialsService.getCredential().login, id).then(resp => {
-        this.commit("getNotes");
-        return resp;
-      });
+      return noteService
+        .deleteNote(credentialsService.getCredential().login, id)
+        .then(resp => {
+          this.commit("getNotes");
+          return resp;
+        });
     }
   },
   actions: {
